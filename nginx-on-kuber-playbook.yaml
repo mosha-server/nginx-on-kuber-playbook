@@ -1,0 +1,19 @@
+- name: ------------------ copy -------------------
+  copy:
+    src: nginx.yaml
+    dest: /root
+  tags: nginx
+
+- name: ------------------ copy -------------------
+  copy:
+    src: svc.yaml
+    dest: /root
+  tags: nginx
+
+- name: --------------------- kubectl apply  -----------------------
+  command: kubectl apply -f nginx.yaml
+  tags: nginx
+
+- name: --------------------- kubectl apply  -----------------------
+  command: kubectl apply -f svc.yaml
+  tags: nginx
